@@ -6,8 +6,8 @@ var Schema = mongoose.Schema;
 var deviceSchema = new Schema({
     name: String,
     id: String,
-    signals: String
+    typ: String
 
 });
-
-module.exports = mongoose.model('device', deviceSchema);
+var device = mongoose.model('device', deviceSchema);
+module.exports = device;

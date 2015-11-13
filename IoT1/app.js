@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://ds054308.mongolab.com:54308/iotdevices');
+mongoose.connect('mongodb://rajitharamanayake:rsvisuals93@ds054308.mongolab.com:54308/iotdevices');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -36,8 +36,43 @@ var port = process.env.PORT || 8050;
 //instanse of a router
 var router = express.Router();
 
+router.use(function (req, res, next) {
+    console.log('itz happening');
+    next(); //go to next route
+});
+
 router.get('/', function (req, res) {
-    res.json({ messege: 'its working' });
+    res.json({ messege: 'api done' });
+});
+
+router.route('/devices')
+
+//add a new device ('../api/device')
+    .post(function (req, res) {
+    
+        var device1 = new device(); // create an new instance of device
+    
+        device1.name = req.body.name;
+        device1.id = req.body.id;
+        device1.typ = req.body.typ;
+    
+        //save the device
+        device1.save(function (err) {
+        if (err)
+            res.send(err);
+        
+        res.json({ massege: 'device added' });
+        });
+})
+
+    .get(function (req, res) {
+        device.find({}, function (err, devices) {
+            if (err)
+                res.send(err);
+        
+            res.json(device);
+        });
+
 });
 
 //create the prefix

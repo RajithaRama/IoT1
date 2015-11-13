@@ -5,6 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>IoT1</Name>
     <RootNamespace>IoT1</RootNamespace>
+    <NameOfLastUsedPublishProfile>IoTHubDialog - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -35,6 +36,10 @@
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <Content Include="apiapp.json" />
+    <None Include="IoTHubDialog - Web Deploy.pubxml" />
+    <None Include="IoTHubDialog - FTP.pubxml" />
+    <Content Include="Metadata\deploymentTemplates\apiappconfig.azureresource.json" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\style.styl" />
     <Content Include="README.md" />
@@ -44,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="Metadata\" />
+    <Folder Include="Metadata\deploymentTemplates\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
