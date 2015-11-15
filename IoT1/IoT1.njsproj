@@ -32,9 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="device.js" />
+    <Compile Include="bulbs\philipsHue.js" />
     <Compile Include="models\device.js" />
     <Compile Include="routes\index.js" />
+    <Compile Include="routes\bulb.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <Content Include="apiapp.json" />
@@ -53,6 +54,7 @@
     <Folder Include="Metadata\" />
     <Folder Include="Metadata\deploymentTemplates\" />
     <Folder Include="models\" />
+    <Folder Include="bulbs\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />

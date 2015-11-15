@@ -31,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
+
 var port = process.env.PORT || 8050;
 
 
@@ -49,9 +50,22 @@ router.get('/', function (req, res) {
     res.json({ messege: 'api done' });
 });
 
-router.route('/devices')
 
-//add a new device ('../api/device')
+/****************** Bulb intensity*************/
+/**********************************************/
+
+router.route('/devices/bulb/:intensity')
+
+  .get(function (req, res) {
+    device.find(function (err, devices) {
+        if (err)
+            res.send(err);
+        
+        res.json(devices);
+    });
+
+});
+/*add a new device ('../api/device')
     .post(function (req, res) {
     
         var device1 = new device(); // create an new instance of device
@@ -68,16 +82,8 @@ router.route('/devices')
         res.json({ massege: 'device added' });
         });
 })
-
-    .get(function (req, res) {
-        device.find({}, function (err, devices) {
-            if (err)
-                res.send(err);
-        
-            res.json(device);
-        });
-
-});
+**/
+  
 
 
 
