@@ -33,6 +33,7 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="device.js" />
+    <Compile Include="models\device.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
@@ -51,6 +52,7 @@
     <Folder Include="bin\" />
     <Folder Include="Metadata\" />
     <Folder Include="Metadata\deploymentTemplates\" />
+    <Folder Include="models\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />

@@ -5,11 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://rajitharamanayake:rsvisuals93@ds054308.mongolab.com:54308/iotdevices');
+mongoose.connect('mongodb://localhost/device' );
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var device = require('./device.js');
+var device = require('./models/device.js');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
 var app = express();
 
@@ -41,6 +43,8 @@ router.use(function (req, res, next) {
     next(); //go to next route
 });
 
+app.use('/api', router);
+
 router.get('/', function (req, res) {
     res.json({ messege: 'api done' });
 });
@@ -55,7 +59,7 @@ router.route('/devices')
         device1.name = req.body.name;
         device1.id = req.body.id;
         device1.typ = req.body.typ;
-    
+        console.log(device1.name +" " + device1.typ);
         //save the device
         device1.save(function (err) {
         if (err)
@@ -75,8 +79,8 @@ router.route('/devices')
 
 });
 
-//create the prefix
-app.use('/api', router);
+
+
 
 //=========start the server=========
 
