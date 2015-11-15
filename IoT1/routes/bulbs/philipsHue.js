@@ -1,5 +1,5 @@
 ﻿
-function philipsHue(ip, mac, id) {
+function philipsHue(ip, mac) {
     
     var hue = require("node-hue-api"),
         HueApi = hue.HueApi,

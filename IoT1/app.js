@@ -9,7 +9,8 @@ mongoose.connect('mongodb://localhost/device' );
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var device = require('./models/device.js');
+var bulb = require('./routes/bulb.js')
+var device = require('./routes/models/device.js');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/bulb', bulb);
 
 
 var port = process.env.PORT || 8050;

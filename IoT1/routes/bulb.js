@@ -1,9 +1,9 @@
 ﻿// bulb.js
 var express = require('express');
 var router = express.Router();
-var philips = require('./../bulbs/philipsHue');
-var clipsal = require('./../bulbs/clipsal');
-var device = mongoos.model('./../models/device');
+var philips = require('./bulbs/philipsHue');
+var clipsal = require('./bulbs/clipsal');
+var device = mongoos.model('./models/device');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/device');
 
@@ -21,9 +21,9 @@ router.get('/on/:signal', function (req, res) {
     });
 
     if (req.brand === "philips_hue") {
-        var bulb = new philips.philipsHue(ip, mac, req.id);
+        var bulb = new philips.philipsHue(ip, mac);
     } else if (req.brand === "clipsal") {
-        var bulb = new clipsal.clipsalBulb(ip, mac, req.id);
+        var bulb = new clipsal.clipsalBulb(ip, mac);
     };
 
     bulb.on(req.params.signal);
