@@ -4,15 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/device' );
+//var mongoose = require('mongoose');
+//mongoose.connect('mongodb://localhost/device' );
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var bulb = require('./routes/bulb.js')
 var device = require('./routes/models/device.js');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+
+//var db = mongoose.connection;
+//db.on('error', console.error.bind(console, 'connection error:'));
 
 var app = express();
 
@@ -40,7 +41,7 @@ var port = process.env.PORT || 8050;
 
 //instanse of a router
 var router = express.Router();
-
+/*
 router.use(function (req, res, next) {
     console.log('itz happening');
     next(); //go to next route
@@ -55,7 +56,7 @@ router.get('/', function (req, res) {
 
 /****************** Bulb intensity*************/
 /**********************************************/
-
+/**
 router.route('/devices/bulb/:intensity')
 
   .get(function (req, res) {
