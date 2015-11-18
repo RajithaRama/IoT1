@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var philips = require('./bulbs/philipsHue');
+var ledIot = require('./bulbs/LED');
 //var clipsal = require('./bulbs/clipsal');
 
 
@@ -11,7 +12,7 @@ var device = require('./models/device.js');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-router.post('/on/:signal', function (req, res) {
+router.post('/on', function (req, res) {
     
     
     var ip = '192.168.23.21', mac = '12.43.a1.34.54.65.78.54';
@@ -22,16 +23,20 @@ router.post('/on/:signal', function (req, res) {
     });       */
     
     if (req.body.brand == 'philips_hue') {
-         var bulb = new philips.philipsHue(ip, mac);
-    }/* else if (req.brand == "clipsal") {
-        var bulb = new clipsal.clipsalBulb(ip, mac);
-    };*/
-    if (req.params.signal == 0) {
-        bulb.off();
-    } else {
-        bulb.on();
+         philips.philipsHue(ip, mac);
+        if (req.body.signal == 0) {
+            philips.off();
+        } else {
+            philips.on();
+        }
+    } else if (req.body.brand == "LED") {
+        ledIot.led(ip, req.body.id);
+        if (req.body.signal == "1") {
+            ledIot.on();
+        }
     }
-    res.send({ 'massege': 'done' });
+
+    res.send({ 'message': 'done' });
 });
 
 module.exports = router;

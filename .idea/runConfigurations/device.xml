@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="device" type="NodeJSRemoteDebug" factoryName="Node.js Remote Debug" singleton="true">
+    <node-js-remote-debug />
+    <method>
+      <option name="FwBeforeLaunchTask" enabled="true" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="app.js" run_configuration_type="NodeJSConfigurationType" />
+    </method>
+  </configuration>
+</component>

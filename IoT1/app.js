@@ -1,4 +1,4 @@
-﻿
+﻿// app.js﻿
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var bulb = require('./routes/bulb.js')
+var bulb = require('./routes/bulb.js');
 var device = require('./routes/models/device.js');
 
 //var db = mongoose.connection;

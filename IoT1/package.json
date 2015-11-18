@@ -12,7 +12,9 @@
     "mongoose": "~3.6.13",
     "morgan": "~1.3.0",
     "serve-favicon": "~2.1.3",
-    "stylus": "0.42.3"
+    "stylus": "0.42.3",
+    "node-hue-api": "latest"
+
   },
   "description": "IoT1",
   "name": "IoT1",
