@@ -15,7 +15,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 router.post('/on', function (req, res) {
     
     
-    var ip = '192.168.23.21', mac = '12.43.a1.34.54.65.78.54';
+    var ip = '192.168.43.252', mac = '12.43.a1.34.54.65.78.54';
     /*device.findOne({ 'id' : req.body.id , 'user' : req.body.user }, 'ip mac', function (err, device) {
         if (err) return handleError(err);
         ip = device.ip;
